@@ -15,6 +15,8 @@ import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import { ModeToggle } from "./ModeToggle";
 import Link from "next/link";
+import Image from "next/image";
+import avatar from "@/assets/my-photo.jpg";
 
 const pages = [
   {
@@ -114,11 +116,11 @@ function ResponsiveAppBar() {
             }}
           >
             {pages.map((page) => (
-              <MenuItem key={page.title} onClick={handleCloseNavMenu}>
-                <Link href={page.link}>
+              <Link key={page.title} href={page.link}>
+                <MenuItem onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">{page.title}</Typography>
-                </Link>
-              </MenuItem>
+                </MenuItem>
+              </Link>
             ))}
           </Menu>
         </Box>
@@ -161,7 +163,9 @@ function ResponsiveAppBar() {
         <Box sx={{ flexGrow: 0, display: "flex", gap: "1rem" }}>
           <Tooltip title="Open settings">
             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-              <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+              <Avatar alt="Ahmed">
+                <Image src={avatar} alt="Ahmed" />
+              </Avatar>
             </IconButton>
           </Tooltip>
           <Menu
